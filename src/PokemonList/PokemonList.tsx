@@ -3,8 +3,7 @@ import React from 'react';
 import { getPokemons } from '../api';
 
 export default function PokemonList() {
-  const queryPokemon = useQuery('pokemon', () => getPokemons);
-  console.log(queryPokemon);
+  const queryPokemon = useQuery('pokemons', () => getPokemons);
   return (
     <div>
       {queryPokemon.isLoading
