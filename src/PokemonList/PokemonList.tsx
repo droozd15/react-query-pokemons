@@ -7,9 +7,13 @@ export default function PokemonList() {
   console.log(queryPokemon);
   return (
     <div>
-      {queryPokemon?.data?.map((pokemon: any) => {
-        return <div key={pokemon.name}>{pokemon.name}</div>;
-      })}
+      {queryPokemon.isLoading
+        ? 'Loading...'
+        : queryPokemon.isError
+        ? 'Something went wrong'
+        : queryPokemon?.data?.map((pokemon: any) => {
+            return <div key={pokemon.name}>{pokemon.name}</div>;
+          })}
     </div>
   );
 }
