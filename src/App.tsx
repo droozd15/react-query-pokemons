@@ -7,12 +7,20 @@ import PokemonSearch from './components/PokemonSearch';
 const queryClient = new QueryClient();
 
 function App() {
+  const [pokemonInput, setPokemonInput] = useState('');
   const [pokemon, setPokemon] = useState('');
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    setPokemon(pokemonInput);
+  };
 
   return (
     <QueryClientProvider client={queryClient}>
       <div className="App">
-        <input name="pokemon" value={pokemon} onChange={(e) => setPokemon(e.target.value)} />
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <input name="pokemon" value={pokemonInput} onChange={(e) => setPokemonInput(e.target.value)} />
+          <button type="submit">Submit</button>
+        </form>
         <PokemonSearch pokemon={pokemon} />
       </div>
 
