@@ -3,7 +3,7 @@ import { getPokemon } from '../api';
 
 export const usePokemon = (pokemon: string) => {
   return useQuery(
-    pokemon,
+    ['pokemon', pokemon],
     async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       return getPokemon(pokemon);
@@ -11,6 +11,7 @@ export const usePokemon = (pokemon: string) => {
     {
       refetchOnWindowFocus: true,
       staleTime: 5000,
+      enabled: !!pokemon,
     },
   );
 };

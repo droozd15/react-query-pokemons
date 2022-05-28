@@ -21,5 +21,7 @@ export default function PokemonSearch({ pokemon }: PokemonSearchProps) {
 
       {queryPokemon.isFetching ? 'Updating...' : null}
     </div>
-  ) : null;
+  ) : (
+    <div>No pokemon</div>
+  );
 }
