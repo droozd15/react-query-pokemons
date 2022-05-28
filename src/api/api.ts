@@ -7,3 +7,8 @@ const axiosInstance: AxiosInstance = axios.create({
 });
 
 export const getPokemons = axiosInstance.get('/pokemon').then((res) => res.data.results);
+
+export const getPokemon = (pokemon: string) =>
+  axiosInstance.get(`/pokemon/${pokemon}`).then((res) => {
+    return res.data;
+  });

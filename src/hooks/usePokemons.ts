@@ -1,12 +1,12 @@
 import { useQuery } from 'react-query';
-import { getPokemon } from '../api';
+import { getPokemons } from '../api';
 
-export const usePokemon = (pokemon: string) => {
+export const usePokemons = () => {
   return useQuery(
-    pokemon,
+    'pokemons',
     async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      return getPokemon(pokemon);
+      return getPokemons;
     },
     {
       refetchOnWindowFocus: true,

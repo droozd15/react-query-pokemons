@@ -1,8 +1,8 @@
 import React from 'react';
-import { usePokemon } from '../../hooks/usePokemon';
+import { usePokemons } from '../../hooks/usePokemons';
 
 export default function PokemonList() {
-  const queryPokemon = usePokemon();
+  const queryPokemon = usePokemons();
   return (
     <div>
       {queryPokemon.isLoading

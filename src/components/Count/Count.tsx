@@ -1,7 +1,7 @@
 import React from 'react';
-import { usePokemon } from '../../hooks/usePokemon';
+import { usePokemons } from '../../hooks/usePokemons';
 
 export default function Count() {
-  const queryPokemon = usePokemon();
+  const queryPokemon = usePokemons();
   return <h3>You are looking at {queryPokemon.data?.length} pokemons</h3>;
 }
